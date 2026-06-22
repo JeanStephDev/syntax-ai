@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     DEBUG: bool = False
 
     # ─── Database ─────────────────────────────────────────────────────────────
-    DATABASE_URL: str = "postgresql://api_syntax_ai_sql_user:c8aZ3xSvygj1wEFhbpThyBzrPbmaZRmu@dpg-d8ss96smmk8c73dn87a0-a/api_syntax_ai_sql"
+    DATABASE_URL: str = "postgresql+asyncpg://api_syntax_ai_sql_user:c8aZ3xSvygj1wEFhbpThyBzrPbmaZRmu@dpg-d8ss96smmk8c73dn87a0-a/api_syntax_ai_sql"
 
     # ─── Redis ────────────────────────────────────────────────────────────────
     REDIS_URL: str = "redis://red-d8ss3su7r5hc73e7563g:6379"
