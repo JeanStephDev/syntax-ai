@@ -15,14 +15,15 @@ class Settings(BaseSettings):
     DEBUG: bool = False
 
     # ─── Database ─────────────────────────────────────────────────────────────
-    DATABASE_URL: str = "postgresql+asyncpg://user:password@localhost:5432/syntaxai"
+    DATABASE_URL: str = "postgresql://api_syntax_ai_user:OWuybyBtmQZeMreJ6dYwZgAEwnyEXP7q@dpg-d8ss25vavr4c738f86u0-a/api_syntax_ai"
 
     # ─── Redis ────────────────────────────────────────────────────────────────
-    REDIS_URL: str = "redis://localhost:6379"
+    REDIS_URL: str = "redis://red-d8ss3su7r5hc73e7563g:6379"
 
     # ─── CORS ─────────────────────────────────────────────────────────────────
     ALLOWED_ORIGINS: List[str] = [
         "https://ai.syntax-lab.site",
+        "https:/api.ai.syntax-lab.site",
         "https://syntax-lab.site",
         "http://localhost:3000",
         "http://localhost:5173",
