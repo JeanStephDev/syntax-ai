@@ -42,9 +42,9 @@ class Settings(BaseSettings):
     OAUTH_REDIRECT_BASE: str = "https://ai.syntax-lab.site"
 
     # ─── APIs IA ──────────────────────────────────────────────────────────────
-    ANTHROPIC_API_KEY: str = ""
+    ANTHROPIC_API_KEY: str = "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"
     OPENAI_API_KEY: str = ""
-    GOOGLE_API_KEY: str = ""          # Gemini
+    GOOGLE_API_KEY: str = "AQ.Ab8RN6JDcBSTw7wDYnMBgiYHLC07WhLc3qGIevs3svdDssoNGQ"          # Gemini
 
     # ─── Google Translate ─────────────────────────────────────────────────────
     GOOGLE_TRANSLATE_API_KEY: str = ""
