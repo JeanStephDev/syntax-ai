@@ -10,8 +10,8 @@ from functools import lru_cache
 class Settings(BaseSettings):
     # ─── App ──────────────────────────────────────────────────────────────────
     APP_NAME: str = "Syntax AI"
-    ENVIRONMENT: str = "development"
-    SECRET_KEY: str = "change-me-in-production"
+    ENVIRONMENT: str = "production"
+    SECRET_KEY: str = "syntax@304-JSB"
     DEBUG: bool = False
 
     # ─── Database ─────────────────────────────────────────────────────────────
@@ -43,7 +43,7 @@ class Settings(BaseSettings):
 
     # ─── APIs IA ──────────────────────────────────────────────────────────────
     ANTHROPIC_API_KEY: str = "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"
-    OPENAI_API_KEY: str = ""
+    OPENAI_API_KEY: str = "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"
     GOOGLE_API_KEY: str = "AQ.Ab8RN6JDcBSTw7wDYnMBgiYHLC07WhLc3qGIevs3svdDssoNGQ"          # Gemini
 
     # ─── Google Translate ─────────────────────────────────────────────────────
