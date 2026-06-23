@@ -35,10 +35,10 @@ class Settings(BaseSettings):
     REFRESH_TOKEN_EXPIRE_DAYS: int = 30
 
     # ─── OAuth2 Providers ─────────────────────────────────────────────────────
-    GOOGLE_CLIENT_ID: str = ""
-    GOOGLE_CLIENT_SECRET: str = ""
-    GITHUB_CLIENT_ID: str = ""
-    GITHUB_CLIENT_SECRET: str = ""
+    GOOGLE_CLIENT_ID: str = "759859306909-3bsorr59v87crivt5fjkuu98g1q3m09c.apps.googleusercontent.com"
+    GOOGLE_CLIENT_SECRET: str = "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"
+    GITHUB_CLIENT_ID: str = "Ov23li4Crhm57SGFiXWy"
+    GITHUB_CLIENT_SECRET: str = "51cc346d5040c60855f6e21d7ea1b6dddb941e26"
     OAUTH_REDIRECT_BASE: str = "https://ai.syntax-lab.site"
 
     # ─── APIs IA ──────────────────────────────────────────────────────────────
