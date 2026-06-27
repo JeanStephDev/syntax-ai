@@ -212,7 +212,7 @@ function ChatMessage({ msg, activeTab, setActiveTab }: { msg: Message; activeTab
           <div style={{ fontSize:11, color:'var(--text3)', textAlign:'right', marginTop:4 }}>{msg.time}</div>
         </div>
         <div style={{ width:30, height:30, borderRadius:'50%', background:'linear-gradient(135deg,var(--v),var(--blue))', display:'flex', alignItems:'center', justifyContent:'center', fontSize:11, fontWeight:700, color:'white', flexShrink:0, marginTop:2 }}>
-          {(useAuthStore.getState().user?.full_name || 'U').slice(0,2).toUpperCase()}
+          {(user?.full_name || user?.username || 'U').slice(0,2).toUpperCase()}
         </div>
       </div>
     )

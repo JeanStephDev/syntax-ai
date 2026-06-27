@@ -249,14 +249,6 @@ function Nav() {
   )
 }
 
-function WordMarkInline() {
-  return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 9, fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 18, letterSpacing: '-0.03em' }}>
-      <LogoMark size={30} /> Syntax AI
-    </div>
-  )
-}
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)

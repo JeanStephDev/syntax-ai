@@ -1,31 +1,32 @@
 import type { Metadata, Viewport } from 'next'
 import '../styles/globals.css'
+import ThemeInit from '@/components/layout/ThemeInit'
 
 export const metadata: Metadata = {
-  title:       { default: 'Syntax AI', template: '%s — Syntax AI' },
+  title: { default: 'Syntax AI', template: '%s — Syntax AI' },
   description: 'Claude, GPT-4o et Gemini travaillent ensemble. Backend, frontend et docs en une requête.',
   metadataBase: new URL('https://ai.syntax-lab.site'),
   openGraph: {
-    title:       'Syntax AI — L\'IA collaborative pour développeurs',
+    title: 'Syntax AI — L\'IA collaborative pour développeurs',
     description: 'Trois IA spécialisées, une interface. Claude × GPT × Gemini.',
-    url:         'https://ai.syntax-lab.site',
-    siteName:    'Syntax AI',
-    locale:      'fr_FR',
-    type:        'website',
+    url: 'https://ai.syntax-lab.site',
+    siteName: 'Syntax AI',
+    locale: 'fr_FR',
+    type: 'website',
   },
   twitter: {
-    card:        'summary_large_image',
-    title:       'Syntax AI',
+    card: 'summary_large_image',
+    title: 'Syntax AI',
     description: 'L\'IA collaborative pour développeurs.',
-    creator:     '@syntaxai_dev',
+    creator: '@syntaxai_dev',
   },
   icons: { icon: '/favicon.ico' },
 }
 
 export const viewport: Viewport = {
-  width:        'device-width',
+  width: 'device-width',
   initialScale: 1,
-  themeColor:   [
+  themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#F8F7FF' },
     { media: '(prefers-color-scheme: dark)',  color: '#09091A' },
   ],
@@ -47,16 +48,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </body>
     </html>
   )
-}
-
-// Init thème depuis localStorage avant le premier paint
-function ThemeInit() {
-  const script = `
-    try {
-      const t = localStorage.getItem('syntax-theme')
-      const d = t ? JSON.parse(t).state?.dark : false
-      if (d) document.documentElement.setAttribute('data-theme','dark')
-    } catch {}
-  `
-  return <script dangerouslySetInnerHTML={{ __html: script }} />
 }

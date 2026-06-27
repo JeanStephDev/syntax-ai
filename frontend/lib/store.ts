@@ -1,14 +1,13 @@
 'use client'
 
 import { create } from 'zustand'
-import { persist, createJSONStorage } from 'zustand/middleware'
+import { persist } from 'zustand/middleware'
 import type { User } from './api'
 
 function setAuthCookie(token: string) {
   if (typeof document === 'undefined') return
   document.cookie = `syntax-access-token=${token}; path=/; max-age=3600; SameSite=Lax`
 }
-
 function clearAuthCookie() {
   if (typeof document === 'undefined') return
   document.cookie = 'syntax-access-token=; path=/; max-age=0'
@@ -37,17 +36,11 @@ export const useAuthStore = create<AuthState>()(
         set({ user, accessToken, refreshToken })
       },
       setUser: (user) => set({ user }),
-      clearAuth: () => {
-        clearAuthCookie()
-        set({ user: null, accessToken: null, refreshToken: null })
-      },
+      clearAuth: () => { clearAuthCookie(); set({ user: null, accessToken: null, refreshToken: null }) },
       setLoading: (isLoading) => set({ isLoading }),
     }),
     {
       name: 'syntax-auth',
-      storage: createJSONStorage(() =>
-        typeof window !== 'undefined' ? localStorage : ({} as any)
-      ),
       partialize: (s) => ({ user: s.user, accessToken: s.accessToken, refreshToken: s.refreshToken }),
     }
   )
@@ -103,9 +96,7 @@ export const useChatStore = create<ChatState>()((set) => ({
   setHybridModel: (hybridModel) => set({ hybridModel }),
   setSoloModel: (soloModel) => set({ soloModel }),
   addMessage: (m) => set((s) => ({ messages: [...s.messages, m] })),
-  updateMessage: (id, patch) => set((s) => ({
-    messages: s.messages.map((m) => m.id === id ? { ...m, ...patch } : m),
-  })),
+  updateMessage: (id, patch) => set((s) => ({ messages: s.messages.map((m) => m.id === id ? { ...m, ...patch } : m) })),
   setTyping: (typing) => set({ typing }),
   setConvId: (convId) => set({ convId }),
   setActiveTab: (activeTab) => set({ activeTab }),
@@ -124,11 +115,13 @@ export const useThemeStore = create<ThemeState>()(
       dark: false,
       toggle: () => set((s) => {
         const next = !s.dark
-        document.documentElement.setAttribute('data-theme', next ? 'dark' : 'light')
+        if (typeof document !== 'undefined')
+          document.documentElement.setAttribute('data-theme', next ? 'dark' : 'light')
         return { dark: next }
       }),
       set: (dark) => {
-        document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
+        if (typeof document !== 'undefined')
+          document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
         set({ dark })
       },
     }),
